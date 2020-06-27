@@ -1,8 +1,6 @@
 #!/bin/bash
 
-#Чтобы закачать 1 файл
-#curl -k -u "admin:12345678" -H "Content-Type: multipart/form-data" --data-binary "@./kerio-control-vpnclient-linux-amd64.deb" "http://localhost:8081/repository/Astra-Mirror/"
-
+# https://github.com/piratetm/argun/tree/RepoList-Apt-Nexus3
 
 
 #Устанавливем apt-mirror
@@ -32,7 +30,7 @@ apt-mirror
 #Создаем комплект переменных, чтобы не мазолить глаза и вводим свои данные к репозиториям
 #"https://192.168.10.109/repository/Astra-Mirror/"
 # Как создать репозиторий для Debian https://help.sonatype.com/repomanager3/formats/apt-repositories
-./$0 admin 12345678 192.168.10.109 Astra-Mirror
+
 
 #ВВОДИМ ЛОГИН И ПАРОЛЬ
 user=$1
