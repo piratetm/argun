@@ -1,5 +1,9 @@
 # argun
 
+Этот скрипт должен автоматически создать зеркало репозитория Debian 9, Astra Orel и его mirror.
+А так же загрузить все пакеты в repo-manage - nexus3.
+
+
 Запуск astra_apt_nexus3.sh с вводом аргументов:
 ./astra_apt_nexus3.sh MyUser PasswordUser ipHost MyBestRepo1 MyBestRepo2 MyBestRepo3
 
