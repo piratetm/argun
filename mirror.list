@@ -1,0 +1,52 @@
+############# config ##################
+# Базовый каталог, в нём будет создано локальное зеркало репозитория Debian
+set base_path    /mnt/repo/debian
+
+# Пути к файлам зеркала, временным файлам и журналy выполнения apt-mirror
+# set mirror_path  $base_path/mirror
+# set skel_path    $base_path/skel
+# set var_path     $base_path/var
+# set cleanscript $var_path/clean.sh
+
+# Архитектура, для которой создаётся зеркало. По умолчанию - это архитектура
+# системы, на которой работает apt-mirror (amd64,i386 или др.). Менять не ненужно,
+# т.к. ниже мы явно укажем и зеркало и архитектуру.
+# set defaultarch  <running host architecture>
+
+# Пусть к скрипту постобработки, по-умолчанию отсутствует, пока нам не нужен.
+# set postmirror_script $var_path/postmirror.sh
+
+# Не запускать скрипт постобработки
+set run_postmirror 0
+
+# Служебные параметры, не трогаем
+set nthreads     20
+set _tilde 0
+#
+############# end config ##############
+
+
+deb [trusted=yes] http://security.debian.org/ stretch/updates main
+deb [trusted=yes] http://security.debian.org/debian-security stretch/updates main
+
+
+deb [trusted=yes] https://download.astralinux.ru/astra/stable/orel/repository/ orel main contrib non-free
+deb http://mirror.yandex.ru/astra/stable/orel/repository/ orel main contrib non-free
+
+deb [trusted=yes arch=amd64] https://download.docker.com/linux/debian stretch stable
+
+
+
+
+
+
+
+
+
+
+# Удаляем файлы не индексированные в Release
+clean http://httpredir.debian.org/debian
+clean http://security.debian.org
+
+# Запрещаем очистку выбранной папки
+skip-clean http://httpredir.debian.org/debian/dists/stretch/main/installer-amd64/
