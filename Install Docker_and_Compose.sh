@@ -1,6 +1,6 @@
 #!/bin/bash
 apt update
-apt install -y
+apt install -y \
     libicu57 \
     apt-transport-https \
     ca-certificates \
